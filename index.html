@@ -1,0 +1,79 @@
+<!-- Doctype é como se fosse uma instrução para o navegador -->
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head> <!-- O head é onde colocamos informações sobre o documento, como o título e meta tags -->
+    <meta charset="UTF-8">
+    <!-- Define a codificação de caracteres para o documento, garantindo que os caracteres sejam exibidos corretamente -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Estabelece a compatibilidade com o Internet Explorer -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Netflix </title>
+    <link rel="stylesheet" href="/assets/styles.css">
+    <!-- A tag link é usada para vincular um arquivo CSS externo ao documento HTML. O atributo rel especifica o tipo de relação entre o documento e o recurso vinculado, e o atributo href fornece o caminho para o arquivo CSS. -->
+</head>
+
+<body>
+
+    <main>
+        <div style="position: relative; text-align: center; margin-bottom: 2rem;">
+            <h1> Quem está assistindo? </h1>
+            <button id="theme-toggle" onclick="toggleTheme()" style="
+                position: absolute;
+                right: 0;
+                top: 0;
+                padding: 0.5rem 1rem;
+                background-color: var(--netflix-red);
+                color: var(--netflix-white);
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 0.9rem;
+                font-weight: 500;
+                white-space: nowrap;
+            ">   Dark</button>
+        </div>
+        <section>
+            <ul class="profiles">
+                <li class="item-perfil">
+                    <a href="catalogo/catalogo.html">
+                        <article class="profile">
+                            <img src="/assets/perfil_1.png" alt="Perfil 1">
+                            <!-- A tag img é usada para inserir uma imagem na página. O atributo src especifica o caminho da imagem, e o atributo alt fornece um texto alternativo caso a imagem não possa ser exibida. -->
+                            <figcaption><b>Nando</b></figcaption>
+                        </article>
+                    </a>
+                </li>
+                <li class="item-perfil">
+                    <a href="catalogo/catalogo.html">
+                        <article class="profile">
+                            <img src="/assets/perfil_2.png" alt="Perfil 2">
+                            <figcaption><b>Doni</b></figcaption>
+                        </article>
+                    </a>
+                </li>
+                <li class="item-perfil">
+                    <a href="catalogo/catalogo.html">
+                        <article class="profile">
+                            <img src="/assets/perfil_3.png" alt="Perfil 3">
+                            <figcaption><b>Rita</b></figcaption>
+                        </article>
+                    </a>
+                </li>
+                <li class="item-perfil">
+                    <a href="catalogo/catalogo.html">
+                        <article class="profile">
+                            <img src="/assets/perfil_4.png" alt="Perfil 4">
+                            <figcaption><b>Pulga</b></figcaption>
+                        </article>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <script src="theme-toggle.js"></script>
+    <script src="index.js"></script>
+
+</body>
+
+</html>
