@@ -1,0 +1,246 @@
+/* ====================================
+   ESTILOS GLOBAIS - INSPIRADO NA NETFLIX
+   ==================================== */
+
+* {
+    margin: 0; /* Remove todas as margens padrão dos elementos */
+    padding: 0.75rem; /* Remove todos os preenchimentos padrão dos elementos */
+    box-sizing: border-box; /* Inclui padding e borda na largura e altura total do elemento */
+}
+
+:root {
+    --netflix-black: #141414; /* Define variável personalizada para a cor preta principal da Netflix */
+    --netflix-red: #E50914; /* Define variável personalizada para a cor vermelha icônica da Netflix */
+    --netflix-white: #ffffff; /* Define variável personalizada para a cor branca do texto */
+    --netflix-gray: #808080; /* Define variável personalizada para a cor cinza de destaque */
+    --netflix-dark-gray: #424242; /* Define variável personalizada para a cor cinza escuro de fundo */
+}
+
+/* ====================================
+   THEME VARIABLES - DARK/LIGHT MODE
+   ==================================== */
+
+:root[data-theme="light"] {
+    --netflix-black: #ffffff; /* Fundo branco */
+    --netflix-red: #E50914;
+    --netflix-white: #000000; /* Texto preto */
+    --netflix-gray: #666666;
+    --netflix-dark-gray: #f0f0f0; /* Fundo claro para cards */
+}
+
+:root[data-theme="dark"] {
+    --netflix-black: #141414;
+    --netflix-red: #E50914;
+    --netflix-white: #ffffff;
+    --netflix-gray: #808080;
+    --netflix-dark-gray: #424242;
+}
+
+html, body {
+    width: 100%; /* Faz com que html e body ocupem toda a largura da viewport */
+    height: 100%; /* Faz com que html e body ocupem toda a altura da viewport */
+}
+
+body {
+    background-color: var(--netflix-black); /* Define o fundo como preto da Netflix usando variável personalizada */
+    color: var(--netflix-white); /* Define a cor padrão do texto como branco */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define a pilha de fontes com fallbacks */
+    line-height: 1.6; /* Define a altura da linha para melhor legibilidade */
+}
+
+/* ====================================
+   NAVEGAÇÃO
+   ==================================== */
+
+nav {
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente preto para a navegação */
+    padding: 1rem 2rem; /* Adiciona preenchimento interno à navegação (1rem cima/baixo, 2rem esquerda/direita) */
+    position: sticky; /* Faz a navegação ficar fixa no topo ao rolar */
+    top: 0; /* Posiciona a navegação no topo da viewport quando fixa */
+    z-index: 100; /* Garante que a navegação apareça acima de outros conteúdos */
+    border-bottom: 2px solid var(--netflix-red); /* Adiciona borda vermelha na parte inferior da navegação */
+}
+
+nav ul {
+    list-style: none; /* Remove os marcadores padrão da lista */
+    display: flex; /* Usa flexbox para layout horizontal */
+    gap: 50rem; /* Espaço entre os itens flex */
+    max-width: 1200px; /* Limita a largura máxima da navegação */
+    margin: 0 auto; /* Centraliza a navegação horizontalmente com margens automáticas */
+}
+
+nav a {
+    text-decoration: none; /* Remove o sublinhado dos links */
+    color: var(--netflix-white); /* Define a cor dos links como branco */
+    font-weight: 500; /* Define peso da fonte médio */
+    font-size: 1rem; /* Define o tamanho da fonte como 1rem (16px) */
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Transição suave para mudanças de cor e sombra */
+}
+
+nav a:hover {
+    color: var(--netflix-red); /* Muda a cor do link para vermelho no hover */
+    text-shadow: 0 0 10px rgba(229, 9, 20, 0.5); /* Adiciona sombra vermelha brilhante no hover */
+}
+
+a {
+    color: inherit; /* Herda a cor do elemento pai (não força azul/roxo) */
+    text-decoration: none; /* Remove sublinhado padrão */
+}
+
+a:hover {
+    color: var(--netflix-red); /* Opcional: cor de hover para links em cards */
+}
+
+/* ====================================
+   MAIN E SEÇÕES
+   ==================================== */
+
+main {
+    max-width: 1200px; /* Limita a largura máxima do conteúdo principal */
+    margin: 0 auto; /* Centraliza o conteúdo principal horizontalmente */
+    padding: 3rem 2rem; /* Adiciona preenchimento ao redor do conteúdo principal */
+}
+
+h1 {
+    font-size: 2.5rem; /* Define tamanho grande da fonte para o cabeçalho principal */
+    margin-bottom: 2rem; /* Adiciona espaço abaixo do cabeçalho */
+    text-align: center; /* Alinha o texto do cabeçalho ao centro */
+    text-transform: none; /* Mantém o texto no caso original (sem transformação) */
+    letter-spacing: 2px; /* Adiciona espaço entre as letras */
+    position: relative; /* Habilita posicionamento para pseudo-elemento */
+    padding-bottom: 1rem; /* Adiciona espaço abaixo do texto para efeito de sublinhado */
+}
+
+h1::after {
+    content: ''; /* Insere conteúdo vazio para linha decorativa */
+    position: absolute; /* Posiciona relativo ao h1 */
+    bottom: 0; /* Coloca na parte inferior do h1 */
+    left: 50%; /* Inicia do centro horizontalmente */
+    transform: translateX(-50%); /* Centraliza a linha horizontalmente */
+    width: 100px; /* Define largura da linha decorativa */
+    height: 3px; /* Define altura da linha decorativa */
+    background: linear-gradient(90deg, transparent, var(--netflix-red), transparent); /* Cria linha gradiente com vermelho no centro */
+}
+
+/* ====================================
+   SEÇÃO DE PERFIS
+   ==================================== */
+
+.profiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    justify-items: center;
+    list-style: none;
+    padding: 0;
+}
+
+.profiles li {
+    list-style: none;
+}
+
+.profiles a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ====================================
+   ARTIGOS (CARTÕES DE PERFIL)
+   ==================================== */
+
+.profile {
+    border-radius: 8px; /* Arredonda os cantos dos cartões de perfil */
+    overflow: hidden; /* Oculta conteúdo que transborda os cantos arredondados */
+    cursor: pointer; /* Muda o cursor para ponteiro no hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave para escala e sombra */
+}
+
+.profile:hover {
+    transform: scale(1.05); /* Aumenta ligeiramente o cartão no hover */
+}
+
+.profile img {
+    width: 150px; /* Define largura fixa para as imagens de perfil */
+    height: 150px; /* Define altura fixa para as imagens de perfil */
+    object-fit: cover; /* Corta a imagem para caber nas dimensões mantendo proporção */
+    display: block; /* Remove espaçamento inline padrão */
+    transition: filter 0.3s ease; /* Transição suave para mudança de brilho */
+    border-radius: 8px; /* Comentado: tornaria as imagens circulares */
+}
+
+.profile:hover img {
+    filter: none; /* Remove escurecimento no hover da imagem */
+}
+
+.profile figcaption {
+    padding: 1rem; /* Adiciona preenchimento interno ao figcaption */
+    text-align: center; /* Alinha o texto ao centro */
+    font-size: 1.1rem; /* Define tamanho da fonte ligeiramente maior */
+    font-weight: 400; /* Define peso da fonte normal */
+   /*-- background: linear-gradient(135deg, var(--netflix-red), rgba(229, 9, 20, 0.7));*/ /* Comentado: adicionaria fundo gradiente */
+}
+
+/* ====================================
+   RESPONSIVIDADE
+   ==================================== */
+
+@media (max-width: 600px) { /* Aplica estilos quando a viewport é de 500px ou menor */
+    nav ul {
+        gap: 1rem; /* Reduz o espaço entre itens da navegação */
+        padding: 0.75rem; /* Remove preenchimento da lista de navegação */
+    }
+
+    nav a {
+        font-size: 0.9rem; /* Reduz ligeiramente o tamanho da fonte */
+    }
+
+    h1 {
+        font-size: 1.8rem; /* Reduz o tamanho da fonte do cabeçalho */
+    }
+
+    main {
+        /* aumenta a margem superior para dar mais espaço em telas menores */
+        margin-top: 2rem;
+        padding: 2rem 1rem; /* Reduz o preenchimento do conteúdo principal */
+    }
+
+    .profiles ul {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Ajusta colunas do grid para telas menores */
+        gap: 1rem; /* Reduz o espaço entre cartões de perfil */
+    }
+
+    .profile img {
+        width: 100%;
+        height: auto;
+        max-width: 140px;
+    }
+}
+
+@media (max-width: 480px) { /* Aplica estilos quando a viewport é de 480px ou menor */
+    nav ul {
+        flex-direction: column; /* Empilha itens da navegação verticalmente */
+        gap: 0.5rem; /* Reduz o espaço entre itens empilhados */
+    }
+
+    h1 {
+        font-size: 1.4rem; /* Reduz ainda mais o tamanho da fonte do cabeçalho */
+    }
+
+    .profiles ul {
+        grid-template-columns: 1fr; /* Perfil em coluna única */
+        justify-items: center;
+    }
+
+    .profile {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .profile img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+    }
+}
